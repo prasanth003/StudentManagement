@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Student Name</label>
+        <input type="text" class="form-control" name="name" formControlName="name" #name [(ngModel)] = "adunit.name"/>
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Student Name is required.
+        </div> 
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Register Number</label>
+        <input type="text" class="form-control" name="reg" formControlName="reg" #reg [(ngModel)] = "adunit.reg"/>
+      </div>
+      <div *ngIf="angForm.controls['reg'].invalid && (angForm.controls['reg'].dirty || angForm.controls['reg'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['reg'].errors.required">
+          Register Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateAdUnit(name.value, reg.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Student</button>
+      </div>
+    </form>
+  </div>
+</div>
