@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Student Name</td>
+      <td>Mark</td>
+      <td>DOB</td>
+      <td>Department</td>
+      <td>Register.no</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let adunit of adunits">
+          <td>{{ adunit.name }}</td>
+          <td>{{ adunit.mark }}</td>
+          <td>{{ adunit.dob }}</td>
+          <td>{{ adunit.dep }}</td>
+          <td>{{ adunit.reg }}</td>
+          <td><a [routerLink]="['/edit', adunit._id]" class="btn btn-primary">Edit</a></td>
+          <td><button (click)="deleteAdUnit(adunit._id)"  class="btn btn-danger">Delete</button></td>
+      </tr>
+  </tbody>
+</table>

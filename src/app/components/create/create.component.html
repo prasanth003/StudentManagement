@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Student Name</label>
+        <input type="text" class="form-control" name="name" formControlName="name" #name/>
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Student Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">RegisterNumber</label>
+        <input type="text" class="form-control" name="reg" formControlName= "reg" #reg/>
+      </div>
+      <div *ngIf="angForm.controls['reg'].invalid && (angForm.controls['reg'].dirty || angForm.controls['reg'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['reg'].errors.required">
+          Registernumber is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Date of Birth</label>
+        <input type="text" class="form-control" name="dob" formControlName= "dob" #dob/>
+      </div>
+      <div *ngIf="angForm.controls['dob'].invalid && (angForm.controls['dob'].dirty || angForm.controls['dob'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['dob'].errors.required">
+          Date of Birth is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Mark</label>
+        <input type="text" class="form-control" name="mark" formControlName= "mark" #mark/>
+      </div>
+      <div *ngIf="angForm.controls['mark'].invalid && (angForm.controls['mark'].dirty || angForm.controls['mark'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['mark'].errors.required">
+          Mark is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Department</label>
+        <input type="text" class="form-control" name="dep" formControlName= "dep" #dep/>
+      </div>
+      <div *ngIf="angForm.controls['dep'].invalid && (angForm.controls['dep'].dirty || angForm.controls['dep'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['reg'].errors.required">
+          Department is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="addAdUnit(name.value, reg.value, mark.value, dob.value, dep.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add Student</button>
+      </div>
+    </form>
+  </div>
+</div>
